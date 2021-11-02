@@ -316,7 +316,7 @@ SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
 					    <input class="textarea" type="hidden" name="member_id" value="${sessionScope.id}"><br><br>
 					</div>
 					<div>
-					    <textarea class="textarea" name="study_id" style="width: 10;" maxlength=1000 placeholder="study_id"></textarea><br><br>
+					    <input class="textarea" type="hidden" name="num" style="width: 10;" maxlength=1000 placeholder="num"><br><br>
 					</div>
 					<div>
 					    <textarea class="textarea" name="title" id="title" maxlength="60" cols="10" placeholder="title"></textarea><br><br>
