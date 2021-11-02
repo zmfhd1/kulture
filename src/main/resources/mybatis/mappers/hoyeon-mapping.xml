@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="users.UsersDAO" >
+
+<select id="getUsersList" resultType="users.StudyInfoVO">
+ select * from member
+</select>
+
+<select id="getStudyinfoList" resultType="users.StudyInfoVO">
+ select * from STUDYINFO
+</select>
+<!-- 
+<delete id="deleteBoard" parameterType="users.UsersVO">
+delete from STUDYINFO where STUDY_ID like #{study_id}
+</delete>
+ -->
+<select id="getTitle" resultType="String">
+select title from STUDYINFO where member_id = #{member_id}
+</select>
+
+<select id="getWord" resultType="users.StudyInfoVO" parameterType="users.StudyInfoVO">
+select title from STUDYINFO where title like #{title} and member_id=#{member_id}
+</select>
+
+<delete id="boardDelete" parameterType="String">
+delete STUDYINFO where title = #{title}
+</delete>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

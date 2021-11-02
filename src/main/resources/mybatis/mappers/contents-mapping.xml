@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- product 테이블에 지정한 여러가지sql 지정 -->
+<mapper namespace="contents.ContentsDAO" >
+
+<select id="contentsList" resultType="contvo">
+select * from content_info
+</select>
+
+<select id="titleList" resultType="contvo">
+select * from content_info where content_title=#{content_title}
+</select>
+
+<select id="contentsOne" resultType="contvo">
+select content_title from content_info
+</select>
+
+<insert id="contentsInsert" parameterType="contvo">
+insert into product values(
+#{content_id}, #{content_title}, #{quotes}, #{content_name}, #{content_description}, 
+#{content_characters}, #{content_slang}, #{content_slang_desc}
+)
+</insert>
+
+<!-- <update id="contentsUpdate" parameterType="contvo"> -->
+<!-- update contents_info set content_title = #{content_title} where content_id = #{content_id} -->
+<!-- </update> -->
+
+<!-- <delete id="contentsDelete" parameterType="contvo"> -->
+<!-- delete contents_info where xx = #{xx} -->
+<!-- </delete> -->
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
