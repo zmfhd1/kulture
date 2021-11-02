@@ -1,7 +1,7 @@
 <%@page import="contents.ContentsVO"%>
 <%@page import="java.util.List"%>
 <%@page import="org.json.JSONArray"%>
-<%@page import="org.json.JSONObject"%>
+<%@page import="org.json.JSONObject"%> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%

@@ -47,7 +47,7 @@ public class TTSService implements NaverService {
                 byte[] bytes = new byte[1024];
                 // 랜덤한 이름으로 mp3 파일 생성
                 String tempname = Long.valueOf(new Date().getTime()).toString();
-                File f = new File("C:/Users/JS/Desktop/" + tempname + ".mp3");
+                File f = new File("/usr/mydir/upload" + tempname + ".mp3");
                 f.createNewFile();
                 result = f.getName();
                 OutputStream outputStream = new FileOutputStream(f);
