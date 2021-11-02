@@ -288,7 +288,7 @@ SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
 			<div align="left"><br>
 			1. Upload your Korean audio file<br>
 			2. Click the 'CONVERT TO TEXT' button<br>
-			3. Audio data format supports mp3, aac, ac3, ogg, flac, and wav<br><br>
+			3. Audio data format supports mp3, aac, ac3, ogg, flac, and wav(Up to 10 MBbytes file)<br><br>
 			</div>
 			<div id="sttInput">
 				<div id="uploadPart">			
@@ -303,7 +303,7 @@ SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
 					<textarea class="textarea" cols="30" rows="5" id="txtArea2"></textarea><br><br>
 				</div>
 			</div>
-		</div>		
+		</div>
 	</div>
 	
 	<div class="col-lg-4 col-md-4 text-center"> 
