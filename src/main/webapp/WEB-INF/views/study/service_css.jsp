@@ -225,7 +225,7 @@ function savestudy(){
 	var m1 = studyForm.study_memo1.value;
 	var m2 = studyForm.study_memo2.value;
 	
-	if( !studyId || !title || !m1 || !m2 ){
+	if( !num || !title || !m1 || !m2 ){
 		alert("Please enter the content and save it.")
 	}
 	else{
