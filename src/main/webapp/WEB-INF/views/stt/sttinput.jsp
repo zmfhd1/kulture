@@ -28,56 +28,55 @@
 <body>
 <script src="jquery-3.2.1.min.js"></script>
 <script>	
- 	var txtArea = document.getElementById("txtArea");
-	
-	//전역변수 선언
-	var upload_resultData; //파일명 저장 변수
-	var stt_resultData; //stt 결과 데이터 저장 변수
-	
-	//파일 업로드
-	function uploadFile(){
-	    var formData = new FormData();
-	    formData.append("file1", $("#file1")[0].files[0]);
-	
-	    $.ajax({
-	        url: '/uploadresult',
-	        processData: false,
-	        contentType: false,
-	        data: formData,
-	        type: 'POST',
-	        success: function(uploadData){	        	
-	            alert("파일명 : " + uploadData + " 업로드 완료");
-	            upload_resultData = uploadData;//파일명 저장
-	        }//success
-	    });//ajax
-	}//uploadFile()
-	
-	function sttBtn(){
-		$.ajax({
-			url : '/sttservice',
-			data : {"file": upload_resultData},
-			dataType : 'json',
-			type : 'post',
-			success : function(sttData){
-				console.log(sttData);
-				$("#txtArea").val(JSON.stringify(sttData.text));
-				stt_resultData = JSON.stringify(sttData.text);//stt결과 저장
-			}//success			
-		})//ajax
-	}//sttBtn()
-	
-	function papagoBtn(){
-		$.ajax({
-			url : '/papagoservice',
-			data : {"text": stt_resultData},
-			dataType : 'json',
-			type : 'post',
-			success : function(result){
-				console.log(result);
-				$("#txtArea2").val(JSON.stringify(result.message.result.translatedText));
-			}//success			
-		});//ajax
-	}//papagoBtn()
+var upload_resultData; //파일명 저장 변수
+var stt_resultData; //stt 결과 데이터 저장 변수
+
+//파일 업로드
+function uploadFile(){
+    var formData = new FormData();
+    formData.append("file1", $("#file1")[0].files[0]);
+
+    $.ajax({
+        url: '/uploadresult',
+        processData: false,
+        contentType: false,
+        data: formData,
+        type: 'POST',
+        success: function(uploadData){	        	
+            console.log("파일명 : " + uploadData + " 업로드 완료");
+            upload_resultData = uploadData;//파일명 저장
+            stt();
+            //papagoBtn();
+        }//success
+    });//ajax
+}//uploadFile()
+
+function stt(){
+ 	$.ajax({
+		url : '/sttservice',		
+		data : {"file": upload_resultData},
+		dataType : 'json',
+		type : 'post',
+		success : function(sttData){
+			console.log(sttData.text);
+			$("#txtArea").val(JSON.stringify(sttData.text));
+			stt_resultData = JSON.stringify(sttData.text);//stt결과 저장	
+		}//success			
+	})//ajax
+}//sttBtn()
+
+function papagoBtn(){
+	$.ajax({
+		url : '/papagoservice',
+		data : {"text": stt_resultData},
+		dataType : 'json',
+		type : 'post',
+		success : function(result){
+			console.log(result);
+			$("#txtArea2").val(JSON.stringify(result.message.result.translatedText));
+		}//success			
+	});//ajax
+}
 	
 </script>
 
