@@ -215,6 +215,12 @@ function uploadFile(){
         contentType: false,
         data: formData,
         type: 'POST',
+		beforeSend : function(){
+			FunLoadingBarStart();
+		},
+		complete : funtion(){
+			FunLoadingBarEnd();
+		},	
         success: function(uploadData){	        	
             console.log("파일명 : " + uploadData + " 업로드 완료");
             upload_resultData = uploadData;//파일명 저장
@@ -229,13 +235,7 @@ function stt(){
 		url : '/sttservice',		
 		data : {"file": upload_resultData},
 		dataType : 'json',
-		type : 'post',
-		beforeSend : function(){
-			FunLoadingBarStart();
-		},
-		complete : funtion(){
-			FunLoadingBarEnd();
-		},		
+		type : 'post',	
 		success : function(sttData){
 			console.log(sttData.text);
 			$("#txtArea").val(JSON.stringify(sttData.text));
