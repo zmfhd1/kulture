@@ -25,6 +25,7 @@ public class StudyController {
 	public String studyall() {
 		return "/study/service_css";
 	}
+	
 	@RequestMapping("test")
 	public String test() {
 		return "/test/test";

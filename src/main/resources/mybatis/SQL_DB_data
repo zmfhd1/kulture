@@ -1,0 +1,194 @@
+--계정생성
+create user project identified by project
+default tablespace USERS
+TEMPORARY tablespace TEMP;
+
+--권한부여
+grant resource, connect to project;
+
+--DB 테이블 만들기
+--member table
+create table member( 
+id varchar2(10) constraint id_pk primary key,
+pw varchar2(10) constraint member_pw_nn not null,
+name varchar2(30) constraint member_name_nn not null,
+email varchar2(30) constraint email_unique unique, 
+phone_number varchar2(20),
+nickname varchar2(10) constraint member_nickname_unique unique
+);
+
+--studyinfo table
+create table studyinfo(
+member_id varchar2(10),
+study_id number(38) constraint study_id_pk primary key,
+title varchar2(60) constraint study_title_nn not null,
+textfile varchar2(30) constraint study_textfile_nn not null,
+mp3file varchar2(30) constraint study_mp3file_nn not null,
+text varchar2(4000),
+study_date varchar2(30), 
+folder varchar2(60),
+constraint member_id_fk foreign key(member_id) references member(id)
+);
+
+--contents_info table
+create table content_info(
+content_id number(38) constraint content_id_pk primary key,
+content_title varchar2(900) constraint content_title_nn not null,
+content_quotes varchar2(4000),
+content_name varchar2(1000),
+content_description varchar2(4000),
+content_characters varchar2(4000),
+content_slang varchar2(1000),
+content_slang_desc varchar2(3000),
+content_url varchar2(4000),
+content_quotesurl varchar2(4000)
+);
+
+--memo_info 테이블 생성
+create table memo_info(
+id varchar2(10),
+bNo number(38) primary key,
+title varchar2(60) not null,
+memo_contents1 varchar2(4000),
+memo_contents2 varchar2(4000),
+constraint id_fk foreign key(id) references member(id) on delete cascade
+);
+
+--memo_info 테이블에 적용할 시퀀스 생성
+create sequence memo_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 100
+nocycle;
+
+--새로운 메모 생성 시 적용될 insert문
+insert into memo_info values('test', memo_seq.nextval, 'test1', 'test2', 'test3');
+insert into memo_info values('test2', memo_seq.nextval, 'test1', 'test2', 'test3');
+
+
+
+--생성테이블 제약조건 조회
+select constraint_name from all_constraints where table_name='CONTENT_INFO';
+
+select * from CONTENT_INFO;
+
+
+--memo_info 테이블 생성
+create table memo_info(
+id varchar2(10),
+bNo number(38) primary key,
+title varchar2(60) not null,
+memo_contents1 varchar2(4000),
+memo_contents2 varchar2(4000),
+constraint id_fk foreign key(id) references member(id) on delete cascade
+);
+
+--memo_info 테이블에 적용할 시퀀스 생성
+create sequence memo_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 100
+nocycle;
+
+--member table
+create table member( 
+id varchar2(10) constraint id_pk primary key,
+pw varchar2(10) constraint member_pw_nn not null,
+name varchar2(30) constraint member_name_nn not null,
+email varchar2(30) constraint email_unique unique, 
+phone_number varchar2(20),
+nickname varchar2(10) constraint member_nickname_unique unique
+);
+
+select memo_seq.nextval from dual;
+select memo_seq.currval from dual;
+
+
+--새로운 메모 생성 시 적용될 insert문
+insert into memo_info values('test', select max(bNo)+1 from memo_info, 'test1', 'test2', 'test3');
+insert into memo_info values('test2', memo_seq.nextval, 'test1', 'test2', 'test3');
+
+--결과 조회
+select * from memo_info
+select * from member
+
+desc member;
+
+select * from member;
+
+
+create table member( 
+id varchar2(10) constraint id_pk primary key,
+pw varchar2(10) constraint member_pw_nn not null,
+name varchar2(30) constraint member_name_nn not null,
+email varchar2(30) constraint email_unique unique, 
+phone_number varchar2(20),
+nickname varchar2(10) constraint member_nickname_unique unique
+);
+
+
+MEMBER_ID					    VARCHAR2(10)
+ STUDY_ID				   NOT NULL NUMBER(38)
+ TITLE					   NOT NULL VARCHAR2(60)
+ SHADOWFILE				   NOT NULL VARCHAR2(30)
+ TEXT						    VARCHAR2(4000)
+ STUDY_DATE					    VARCHAR2(30)
+ 
+ 
+ create table memo_info(
+id String(10) constraint memo_id_pk primary key,
+num String(38),
+memo_contents1 varchar2(4000),
+memo_contents2 varchar2(4000)
+);
+
+--studyinfo테이블 관련
+--studyinfo 테이블 생성 
+
+create table studyinfo( 
+member_id varchar2(10), 
+study_id number(38) constraint study_id_pk primary key, 
+title varchar2(60) constraint study_title_nn not null,  
+study_memo1 varchar2(4000),
+study_memo2 varchar2(4000), 
+study_date varchar2(300), 
+constraint member_id_fk foreign key(member_id) references member(id) on delete cascade
+)
+
+drop table studyinfo
+
+select * from studyinfo
+
+--studyinfo seq생성
+create sequence studyinfo_seq
+start with 1
+increment by 1
+minvalue 1
+maxvalue 100000
+nocycle;
+
+--studyinfo seq삭제
+drop sequence studyinfo_seq
+
+alter sequence studyinfo_seq increment by 1;
+
+
+select max(study_id) from STUDYINFO
+
+insert into studyinfo values('test', 1, 'title', 'memo1', 'memo2', sysdate)
+insert into studyinfo values('test', studyinfo_seq.nextval, 'title', 'memo1', 'memo2', sysdate)
+select * from STUDYINFO
+insert into studyinfo values('test', select max(study_id)+1 from studyinfo, 'title', 'memo1', 'memo2', sysdate);
+insert into memo_info values('test', select max(bNo)+1 from memo_info, 'test1', 'test2', 'test3');
+
+select * from MEMBER
+
+select studyinfo_seq.nextval from dual
+
+delete from studyinfo where member_id = 'test'
+
+
+
+
