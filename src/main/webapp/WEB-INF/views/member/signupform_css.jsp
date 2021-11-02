@@ -145,7 +145,7 @@ function idCheck() {
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="http://localhost:9007/insertmember">Join</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
                      	<div id="root">    
                         <li class="nav-item"><a class="nav-link" id="modal_open_btn">Log in</a></li>
                         </div>
