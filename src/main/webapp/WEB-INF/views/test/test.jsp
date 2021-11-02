@@ -21,6 +21,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="css/styles.css" rel="stylesheet" />
+
 <script src="jquery-3.2.1.min.js"></script>
       
 <style>
@@ -163,13 +164,10 @@ function playBtn() {
 }//playBtn()
 
 /* STT */
-//var txtArea = document.getElementById("txtArea");
-
-//전역변수 선언
 var upload_resultData; //파일명 저장 변수
 var stt_resultData; //stt 결과 데이터 저장 변수
 
-//파일 업로드
+//파일 업로드 - studycontroller /uploadresult로 파일객체 전달하여 생성된 파일명 받아온다
 function uploadFile(){
     var formData = new FormData();
     formData.append("file1", $("#file1")[0].files[0]);
@@ -189,6 +187,7 @@ function uploadFile(){
     });//ajax
 }//uploadFile()
 
+//uploadFile() 메소드 결과값을 이용하여 sttcontroller에 파일명 전달하여 변환된 텍스트값 받아온다.
 function stt(){
  	$.ajax({
 		url : '/sttservice',		
@@ -203,6 +202,7 @@ function stt(){
 	})//ajax
 }//sttBtn()
 
+//stt()결과 텍스트를 papagocontroller로 전달해 번역 결과값을 받아온다.
 function papagoBtn(){
 	$.ajax({
 		url : '/papagoservice',
