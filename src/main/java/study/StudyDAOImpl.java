@@ -25,11 +25,5 @@ public class StudyDAOImpl implements StudyDAO {
 		List<StudyInfoVO> list = dao.studyList();
 		return list; 
 	}
-	
-	@Override
-	public String getStudyId() {
-		String result = dao.getStudyId();
-		return result;
-	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 public class StudyServiceImpl implements StudyService {	
 	@Autowired
 	StudyDAO dao;
+	
 	@Override
 	public void saveStudy(StudyInfoVO vo) {
 		dao.saveStudy(vo);
@@ -19,10 +20,5 @@ public class StudyServiceImpl implements StudyService {
 		List<StudyInfoVO> list = dao.studyList();
 		return list; 
 	}
-	
-	@Override
-	public String getStudyId() {
-		String result = dao.getStudyId();
-		return result;
-	}
+
 }
