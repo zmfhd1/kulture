@@ -21,7 +21,7 @@ function uploadFile(){
     formData.append("file1", $("#file1")[0].files[0]);
 
     $.ajax({
-        url: '/result',
+        url: '/uploadresult',
         processData: false,
         contentType: false,
         data: formData,
