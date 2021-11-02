@@ -191,7 +191,7 @@ function FunLoadingBarStart(){
 	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
 	var loadingBarImage = ''; //가운데 띄워 줄 이미지
 	loadingBarImage += "<div id='loadingBar'>";
-	loadingBarImage += " <img src='/usr/mydir/upload/img/loadingbar.gif'/>"; //로딩 바 이미지
+	loadingBarImage += " <img src='assets/img/load-unscreen.gif' width='100px' height='auto' '> "; //로딩 바 이미지
 	loadingBarImage += "</div>";
 	$('body').append(backGroundCover).append(loadingBarImage);
 	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
@@ -260,12 +260,11 @@ function papagoBtn(){
 /* Memo */
 function savestudy(){
 	var studyForm = document.studyform;
-	var studyId = studyForm.study_id.value;
 	var title = studyForm.title.value;
 	var m1 = studyForm.study_memo1.value;
 	var m2 = studyForm.study_memo2.value;
 	
-	if( !num || !title || !m1 || !m2 ){
+	if( !title || !m1 || !m2 ){
 		alert("Please enter the content and save it.")
 	}
 	else{
