@@ -62,6 +62,21 @@ z-index:1;
   z-index:-1;
 }
 
+#back{
+position: absolute;
+z-index: 100;
+background-color: #000000;
+display:none;
+left:0;
+top:0;
+}
+#loadingBar{
+position:absolute;
+left:50%;
+top: 40%;
+display:none;
+z-index:200;
+}
 
 </style>
 
@@ -170,6 +185,25 @@ function playBtn() {
 var upload_resultData; //파일명 저장 변수
 var stt_resultData; //stt 결과 데이터 저장 변수
 
+function FunLoadingBarStart(){
+	var backHeight = $(document).height(); //뒷 배경의 상하 폭
+	var backWidth = window.document.body.clientWidth; //뒷 배경의 좌우 폭
+	var backGroundCover = "<div id='back'></div>"; //뒷 배경을 감쌀 커버
+	var loadingBarImage = ''; //가운데 띄워 줄 이미지
+	loadingBarImage += "<div id='loadingBar'>";
+	loadingBarImage += " <img src='/usr/mydir/upload/img/loadingbar.gif'/>"; //로딩 바 이미지
+	loadingBarImage += "</div>";
+	$('body').append(backGroundCover).append(loadingBarImage);
+	$('#back').css({ 'width': backWidth, 'height': backHeight, 'opacity': '0.3' });
+	$('#back').show();
+	$('#loadingBar').show();
+}
+
+function FunLoadingBarEnd() {
+	$('#back, #loadingBar').hide();
+	$('#back, #loadingBar').remove();
+}
+
 //파일 업로드
 function uploadFile(){
     var formData = new FormData();
@@ -196,6 +230,12 @@ function stt(){
 		data : {"file": upload_resultData},
 		dataType : 'json',
 		type : 'post',
+		beforeSend : function(){
+			FunLoadingBarStart();
+		},
+		complete : funtion(){
+			FunLoadingBarEnd();
+		},		
 		success : function(sttData){
 			console.log(sttData.text);
 			$("#txtArea").val(JSON.stringify(sttData.text));
