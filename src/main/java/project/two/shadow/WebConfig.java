@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/naverimages/**")
-        .addResourceLocations("file:/usr/mydir/upload");
+        .addResourceLocations("file:/usr/mydir/upload/");
     }
 }
 
