@@ -4,22 +4,23 @@ import java.util.Date;
 
 public class StudyInfoVO {
 	String member_id;
-	int study_id;
+	String num;
 	String title;
 	String study_memo1;
 	String study_memo2;
 	String study_date;
+	
+	public String getNum() {
+		return num;
+	}
+	public void setNum(String num) {
+		this.num = num;
+	}
 	public String getMember_id() {
 		return member_id;
 	}
 	public void setMember_id(String member_id) {
 		this.member_id = member_id;
-	}
-	public int getStudy_id() {
-		return study_id;
-	}
-	public void setStudy_id(int study_id) {
-		this.study_id = study_id;
 	}
 	public String getTitle() {
 		return title;

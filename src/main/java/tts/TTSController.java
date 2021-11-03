@@ -14,12 +14,7 @@ public class TTSController {
 	@Autowired
 	TTSService ttsservice;
 	
-	@RequestMapping("/tts")
-	public String serviceForm() {
-		return "/tts/ttsinput";
-	}
-	
-	@RequestMapping(value="/tts2", method=RequestMethod.POST)
+	@RequestMapping(value="/ttsservice", method=RequestMethod.POST)
 	@ResponseBody
 	public String ttsoutput(String input, int speed) throws IOException{ //String text
 		String mp3file = ttsservice.test(input, speed);

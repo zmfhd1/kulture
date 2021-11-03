@@ -10,7 +10,7 @@
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Edit your pofile</title>
+        <title>memo is edited!</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -88,7 +88,7 @@ $(document).ready(function(){
 
 <div id="space_little3"></div>
  
-<button class="btn btn-primary btn-xl" type="button" onclick="location.href='/main'">main page</button>
+<button class="btn btn-primary btn-xl" type="button" onclick="location.href='/main2'">main page</button>
 </div>
 </div>
 </div>

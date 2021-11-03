@@ -24,7 +24,7 @@ public interface MemberDAO {
 	public MemberVO viewmember(MemberVO vo);
 	
 	//로그아웃
-	public void logout(HttpSession session);
+	//public void logout(HttpSession session);
 	
 	//관리자 계정 시 필요한 회원관리
 	public List<MemberVO> memberlist();

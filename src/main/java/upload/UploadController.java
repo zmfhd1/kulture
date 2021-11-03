@@ -10,16 +10,17 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadController {
     
     @RequestMapping("/upload")
-    public String form(){
-    	return "/upload/upload";
-	}
+    public String form()
+    {
+        return "/upload/upload";
+    }
     
     @RequestMapping("/result")
     @ResponseBody
     public String result(MultipartFile file1) throws IOException{ //MultipartFile객체를 사용해 jsp에서 받은 파일을 전송받는다.
     	
 		String filename1 = file1.getOriginalFilename(); //전송받은 파일명 얻기
-		String savepath = "/usr/mydir/upload/";
+		String savepath = "C:/Users/SEC/OneDrive/바탕 화면/images/";
 		File serverfile1 = new File(savepath + filename1);//파일객체 생성
 		file1.transferTo(serverfile1);//원하는위치에 파일 생성
 		return filename1;

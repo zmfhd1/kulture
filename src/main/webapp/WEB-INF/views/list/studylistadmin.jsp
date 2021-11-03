@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)request.getAttribute("studyinfolist");
+List<StudyInfoVO> studyinfolistall = (List<StudyInfoVO>)request.getAttribute("studyinfolistall");
 String admin_id = (String)request.getAttribute("admin_id");
 %>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ String admin_id = (String)request.getAttribute("admin_id");
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>kulture: studylist</title>
+        <title>kulture: admin</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -52,29 +52,31 @@ String admin_id = (String)request.getAttribute("admin_id");
 <div id="space_little2"></div>
 <div class="col-lg-6 col-md-6 text-center">
 
-<form action="/search" method="post">
+<form action="/searchadmin" method="post">
 	<fieldset>
 		<!-- <legend>Search</legend> -->
 			<label><img width="20" height="20" src="https://emojigraph.org/media/apple/magnifying-glass-tilted-left_1f50d.png"></label>
 			<input type = "text" name="title"/>
-			<input name = "member_id" type="hidden" value="${sessionScope.id }">
+			<input name = "member_id" type="hidden" value=<%=admin_id %>>
 			<input class="btn btn-primary btn-xl2" id="searchBtn" type="submit" value="Search">
 	</fieldset>
 </form>
 <div id="space_little2"></div>
 </div>
+
 </center>
 <div class="container px-4 px-lg-5"  id="box1">
 <form action="/delete" method="post">
 <table>
-	<th>Title</th>
-    <%for(int i=0; i < studyinfolist.size(); i++){ %>
+	<th>
+		Title
+	</th>
+    <%for(int i=0; i < studyinfolistall.size(); i++){ %>
     <tr>
     	<td style="text-align:left">
-    		<input id="title1" name="title1" type="checkbox" value="<%=studyinfolist.get(i).getTitle()%>" checkid='checked'></input>
-     
-     <a id="<%=studyinfolist.get(i).getTitle()%>" href='/gotoStudy?title=<%=studyinfolist.get(i).getTitle()%>' onclick="gotoStudybtn()"><%=studyinfolist.get(i).getTitle()%></a> <small><%=studyinfolist.get(i).getStudy_date() %></small>
-     		 
+    		<input id="title1" name="title1" type="checkbox" value="<%=studyinfolistall.get(i).getTitle()%>" checkid='checked'></input>
+     		<a href='/gotoStudy?title=<%=studyinfolistall.get(i).getTitle()%>'><%=studyinfolistall.get(i).getTitle()%></a> 
+    		<small><%=studyinfolistall.get(i).getStudy_date() %></small>
     	</td>
 	</tr>
    			<%} %>
@@ -89,16 +91,6 @@ String admin_id = (String)request.getAttribute("admin_id");
 
 
 <script src="jquery-3.2.1.min.js"></script>
-<script>
-function gotoStudy(){
-	location.href="";
-}
-
-function submitform(title, member_id){
-	document.gotoStudy.submit();
-}
-
-</script>
 
 <style>
 div#box1{
@@ -111,6 +103,7 @@ table{
 	margin-left : auto;
 	margin-right : auto;
 	width: 1000px;
+	
 }
 td{
 	border : 1px solid;
@@ -124,9 +117,17 @@ tr{
 th{
 	font-size: xx-large;
 	font-style: oblique;
+	text-align: center;
 }
 input{
 	text-align: center;
+}
+footer{ 
+	position:fixed; 
+	left:0px; 
+	bottom:0px; 
+	height:60px; 
+	width:100%; 
 }
 small{
 	text-align: right;
@@ -134,7 +135,7 @@ small{
 	margin-left: 70%;
 }
 </style>
-<div id="space"></div>
+
 <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Kulture</div></div>

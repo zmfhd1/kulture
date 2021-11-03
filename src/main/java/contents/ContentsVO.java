@@ -1,50 +1,29 @@
 package contents;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.List; 
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class ContentsVO {
 	int content_id;
 	String content_title;
 	String content_quotes;
+	String content_quotes_ko;
 	String content_name;
 	String content_description;
+	String content_description_ko;
 	String content_characters;
 	String content_slang;
 	String content_slang_desc;
+	String content_slang_desc_ko;
 	List<ContentsVO> titlelist;
 	List<ContentsVO> contentlist;
 	String content_url;
 	String content_quotesurl;
+	String content_link;
+	String content_link_desc;
 	
-	
-	public String getContent_quotesurl() {
-		return content_quotesurl;
-	}
-	public void setContent_quotesurl(String content_quotesurl) {
-		this.content_quotesurl = content_quotesurl;
-	}
-	public String getContent_url() {
-		return content_url;
-	}
-	public void setContent_url(String content_url) {
-		this.content_url = content_url;
-	}
-	public List<ContentsVO> getContentlist() {
-		return contentlist;
-	}
-	public void setContentlist(List<ContentsVO> contentlist) {
-		this.contentlist = contentlist;
-	}
-	public List<ContentsVO> getTitlelist() {
-		return titlelist;
-	}
-	public void setTitlelist(List<ContentsVO> titlelist) {
-		this.titlelist = titlelist;
-	}
 	public int getContent_id() {
 		return content_id;
 	}
@@ -63,6 +42,12 @@ public class ContentsVO {
 	public void setContent_quotes(String content_quotes) {
 		this.content_quotes = content_quotes;
 	}
+	public String getContent_quotes_ko() {
+		return content_quotes_ko;
+	}
+	public void setContent_quotes_ko(String content_quotes_ko) {
+		this.content_quotes_ko = content_quotes_ko;
+	}
 	public String getContent_name() {
 		return content_name;
 	}
@@ -74,6 +59,12 @@ public class ContentsVO {
 	}
 	public void setContent_description(String content_description) {
 		this.content_description = content_description;
+	}
+	public String getContent_description_ko() {
+		return content_description_ko;
+	}
+	public void setContent_description_ko(String content_description_ko) {
+		this.content_description_ko = content_description_ko;
 	}
 	public String getContent_characters() {
 		return content_characters;
@@ -93,16 +84,50 @@ public class ContentsVO {
 	public void setContent_slang_desc(String content_slang_desc) {
 		this.content_slang_desc = content_slang_desc;
 	}
-//	@Override
-//	public String toString() {
-//		return "ContentsVO [content_id=" + content_id + ", content_title=" + content_title + ", content_quotes="
-//				+ content_quotes + ", content_name=" + content_name + ", content_description=" + content_description
-//				+ ", content_characters=" + content_characters + ", content_slang=" + content_slang
-//				+ ", content_slang_desc=" + content_slang_desc + ", titlelist=" + titlelist + ", contentlist="
-//				+ contentlist + ", content_url=" + content_url + ", content_quotesurl=" + content_quotesurl + "]";
-//	}
+	public String getContent_slang_desc_ko() {
+		return content_slang_desc_ko;
+	}
+	public void setContent_slang_desc_ko(String content_slang_desc_ko) {
+		this.content_slang_desc_ko = content_slang_desc_ko;
+	}
+	public List<ContentsVO> getTitlelist() {
+		return titlelist;
+	}
+	public void setTitlelist(List<ContentsVO> titlelist) {
+		this.titlelist = titlelist;
+	}
+	public List<ContentsVO> getContentlist() {
+		return contentlist;
+	}
+	public void setContentlist(List<ContentsVO> contentlist) {
+		this.contentlist = contentlist;
+	}
+	public String getContent_url() {
+		return content_url;
+	}
+	public void setContent_url(String content_url) {
+		this.content_url = content_url;
+	}
+	public String getContent_quotesurl() {
+		return content_quotesurl;
+	}
+	public void setContent_quotesurl(String content_quotesurl) {
+		this.content_quotesurl = content_quotesurl;
+	}
+	public String getContent_link() {
+		return content_link;
+	}
+	public void setContent_link(String content_link) {
+		this.content_link = content_link;
+	}
+	public String getContent_link_desc() {
+		return content_link_desc;
+	}
+	public void setContent_link_desc(String content_link_desc) {
+		this.content_link_desc = content_link_desc;
+	}
 	
-	
+		
 	}
 	
 	

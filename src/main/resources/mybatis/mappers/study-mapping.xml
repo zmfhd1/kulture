@@ -5,8 +5,8 @@
 <mapper namespace="study.StudyDAO" >
 
 <insert id="saveStudy" parameterType="studyinfoVO2"> <!--parametertype = study.studyinfoVO->> studyinfoVO객체타입으로 전달해줄게 -->
-insert into studyinfo (member_id, num, title, study_memo1, study_memo2, study_date) 
-values( #{member_id}, #{num}, #{title}, #{study_memo1}, #{study_memo2}, #{study_date} )
+insert into studyinfo (member_id, title, study_memo1, study_memo2, study_date) 
+values( #{member_id}, #{title}, #{study_memo1}, #{study_memo2}, #{study_date} )
 </insert>
 
 <select id="studyList" resultType="studyinfoVO2">

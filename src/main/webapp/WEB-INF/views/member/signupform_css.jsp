@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Project</title>
+        <title>Join</title>
         
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -25,45 +25,17 @@
         <!-- 제가 적용하는 style 및 sript 부분 -->
         <script src="/jquery-3.2.1.min.js"></script>
 <style>
-#modal {
-display:none;
 
-  position:fixed;
-  width:100%;
-  height:50%;
-  z-index:1;
-}
-
-#modal h2 {
-  margin:0;   
-}
-
-#modal button {
-  display:inline-block;
-  width:100px;
-  margin-left:calc(100% - 100px - 10px);
-}
-
-#modal .modal_content {
-  width:300px;
-  margin:100px auto;
-  padding:20px 10px;
-  background:#fff;
-  border:2px solid #666;
-}
-
-#modal .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.5);
-  z-index:-1;
-}   
 </style>
 
 <script>
+function enterkey() {
+	var loginForm = document.login;
+	if (window.event.keyCode == 13) {
+		loginForm.submit();
+    }
+}
+
 
 $(document).ready(function(){
 	$("#btnLogin").click(function(){
@@ -144,35 +116,41 @@ function idCheck() {
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
-                     	<div id="root">    
-                        <li class="nav-item"><a class="nav-link" id="modal_open_btn">Log in</a></li>
-                        </div>
-                        <!--  <li class="nav-item"><a class="nav-link" href="#contact">JOIN US</a></li>-->
+                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>    
+                        <li class="nav-item"><a class="nav-link" id="modal_open_btn" href="#modal">Log in</a></li>
               
                     </ul>
                 </div>
             </div>
         </nav>
   
-        <!-- 로그인 -->
+      <!-- 로그인 -->
         <div id="modal">
    
-    	<div class="modal_content">
-        <h2>Log in</h2>
-       
+    <div class="modal_content">
+        <center>
+        <h2 id="log_in">Log in</h2>
+       <div id="space_little"></div>
         <form action="main" name="login" method="post">
-		ID: <input id="id2" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10"><br>
-		Password: <input id ="pw2" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
-		<input id ="btnLogin" type="button" value="확인">
+		
+		<div id="space5"></div> 
+		<div id="log_in_typo">ID:</div> <div id="space4"></div>
+		<input class="textarea2" id="id1" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
+		<div id="space_little"></div>
+		
+		<div id="log_in_typo">Password:</div> 
+		<input class="textarea2" id ="pw2" name = "pw" type="password" onkeyup="enterkey()" name="pw" maxlength="10" placeholder="10-digit">
+		<div id="space_little"></div>
+		
+		<input class="btn-primary btn-xl2" id ="btnLogin" type="button" value="confirm" >
+        <input class="btn-primary btn-xl2" type="button" id="modal_close_btn" value="close">
 		</form>
-        <button type="submit" id="modal_close_btn">닫기</button>      
+        </center>
        
-    	</div>
-    	<div class="modal_layer"></div>
-		</div>
+    </div>
 
+    <div class="modal_layer"></div>
+</div>
 <script>
     $("#modal_open_btn").click(function(){
         $("#modal").attr("style", "display:flex");
@@ -206,17 +184,17 @@ function idCheck() {
                                 <label for="id">ID</label>
                                 <div class="invalid-feedback" >ID is required.</div>
                             </div>
-                            <input type="button" value="중복확인" id="idchk" onclick="idCheck()" ><br><br>
+                            <input type="button" value="ID CHECK" id="idchk" onclick="idCheck()" ><br><br>
                             <!-- PW input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="pw" id="pw" type="password" maxlength="4" placeholder="4 digit..." required="required"/>
+                                <input class="form-control" name="pw" id="pw" type="password" maxlength="10" placeholder="10 digit..." required="required"/>
                                 <label for="pw">Password</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
                             
                             <!-- pw 확인 -->
                              <div class="form-floating mb-3">
-                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="4" placeholder="4 digit..." required="required"/>
+                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="10" placeholder="10 digit..." required="required"/>
                                 <label for="pwchk">Password Check</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
@@ -243,7 +221,7 @@ function idCheck() {
                 
                             <!-- NickName input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="5" required="required" />
+                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="8" required="required" />
                                 <label for="nickname">Nickname</label>
                                 <div class="invalid-feedback">A nickname is required.</div>
                             </div>
@@ -356,16 +334,16 @@ function idCheck() {
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2021 - Kulture</div></div>
         </footer>
-        <!-- Bootstrap core JS
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>-->
-        <!-- SimpleLightbox plugin JS
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>-->
-        <!-- Core theme JS
-        <script src="js/scripts.js"></script>-->
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- <script src="/sb-forms-latest.js"></script> -->
+        <script src="/sb-forms-latest.js"></script>
     </body>
 </html>

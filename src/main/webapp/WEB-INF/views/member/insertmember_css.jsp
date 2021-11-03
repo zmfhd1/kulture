@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+    
+     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta charset="UTF-8">
+<title>Join</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>kulture: admin</title>
+        <title>Join</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap Icons-->
@@ -28,8 +28,14 @@
 <style>
 
 </style>
-
 <script>
+function enterkey() {
+	var loginForm = document.login;
+	if (window.event.keyCode == 13) {
+		loginForm.submit();
+    }
+}
+
 
 $(document).ready(function(){
 	$("#btnLogin").click(function(){
@@ -54,141 +60,79 @@ $(document).ready(function(){
 
 
 </script>
-    </head>      
 
-        
-<title>Kulture: admin</title>
+
 </head>
 
 
+<body id="page-top">
 
-
-<%int i = 0;%>
-
-<script src="/jquery-3.2.1.min.js"></script>
-<script>
-//회원탈퇴
-function deleteMember(id){
-	//var id = $("#").val();
-	//console.log("id:::::", id);
-	$.ajax({
-		url:'/deletemember',
-		type:'post',
-		data:{'id': id},
-		
-		//dataType:'json',
-		success: function(msg){
-			alert("success");
-		},//success
-		error:function(e){alert("error")},
-		//complete:function(){alert("완료 ")}
-	});
-	//새로고침
-	location.reload();
-};
-
-</script> 
-
- <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="main3">Kulture</a>
+                <a class="navbar-brand" href="/main">Kulture</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                    	<li class="nav-item"><a class="nav-link">${sessionScope.nickname }</a></li>
-                        <li class="nav-item"><a class="nav-link" href='/admin'>admin</a></li> 
-                        <li class="nav-item"><a class="nav-link" href="/study">Study</a></li>
-                        <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li>
-                        <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
-                     	
-
+                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>    
+                        <li class="nav-item"><a class="nav-link" id="modal_open_btn" href="#modal">Log in</a></li>
               
                     </ul>
                 </div>
             </div>
         </nav>
         
-<style>
-table{
-         text-align: center;
-    border : 2px solid gray;
-}
-tr{
-    text-align: center;
-    border : 2px solid gray;
-}
-tr th{
-    border : 1px solid gray;
-    background-color: #ffe3b8;
-    font-size: 1.5em;
-    font-family: Gmarket Sans;
-}
-td{
-    border : 1px solid gray;
-    width:7%;
-    font-family: Gmarket Sans;
-    }
-</style>
-        
-        <section class="page-section">
-        <div class="container px-4 px-lg-5">
-        
-<div class="text-center" style="font-size: 3em; font-family: Heebo black;">${msg }</div>
-  <div id="space_little2"></div>
-
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>PW</th>
-<th>이름</th>
-<th>이메일</th>
-<th>전화번호</th>
-<th>닉네임</th>
-<th>&nbsp;</th>
-</tr>
-</thead>
-<tbody>
-<c:forEach items="${memberlist }" var="membervo">
-<tr>
-<form action="studylist">
-	<td><input name="admin_id" type="submit" value="${membervo.id }"></td>
-</form>
-	<td><c:out value="${membervo.id }"/></td>
-	<td><c:out value="${membervo.pw }"/></td>
-	<td><c:out value="${membervo.name }"/></td>
-	<td><c:out value="${membervo.email }"/></td>
-	<td><c:out value="${membervo.phone_number }"/></td>
-	<td><c:out value="${membervo.nickname }"/></td>
-	<td><input id="<%=i %>" class="id" type="hidden" name="id" value="${membervo.id }">
-<input id="${membervo.id}" type="button" value="삭제" onclick="deleteMember(this.id)"></td>
-	</tr>
-	</c:forEach>
-	</tbody>
-	</table>
-	
-	<br>
-	<br>
-	 
-	
-	
-
-<%-- ${membervo.id }  ${membervo.pw } : ${membervo.name } : ${membervo.email } :${membervo.phone_number } :${membervo.nickname } 
-
-<input id="<%=i %>" class="id" type="hidden" name="id" value="${membervo.id }">
-<input id="${membervo.id}" type="button" value="삭제" onclick="deleteMember(this.id)"> 
-<br>
-<%i = i+1;%>
---%>
-
+        <!-- 로그인 -->
+        <div id="modal">
+   
+<div class="modal_content">
+        <center>
+        <h2 id="log_in">Log in</h2>
+       <div id="space_little"></div>
+        <form action="main" name="login" method="post">
+		
+		<div id="space5"></div> 
+		<div id="log_in_typo">ID:</div> <div id="space4"></div>
+		<input class="textarea2" id="id" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10">
+		<div id="space_little"></div>
+		
+		<div id="log_in_typo">Password:</div> 
+		<input class="textarea2" id ="pw" name = "pw" type="password" onkeyup="enterkey()" name="pw" maxlength="10" placeholder="10-digit">
+		<div id="space_little"></div>
+		
+		<input class="btn-primary btn-xl2" id ="btnLogin" type="button" value="confirm" >
+        <input class="btn-primary btn-xl2" type="button" id="modal_close_btn" value="close">
+		</form>
+        </center>
+       
+    </div>
+    <div class="modal_layer"></div>
 </div>
 
+<script>
+    $("#modal_open_btn").click(function(){
+        $("#modal").attr("style", "display:flex");
+    });
+   
+     $("#modal_close_btn").click(function(){
+        $("#modal").attr("style", "display:none");
+    });
+  
+</script>
+<div id="space_little2"></div>
+<section class="page-section" id="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+
+<h2>${result }</h2>
+<div id="space_little3"></div>
+<button class="btn btn-primary btn-xl" type="button" onclick="location.href='/main'">main page</button>
+</div>
+</div>
+</div>
 </section>
-
-
+<div id="space"></div>
 
 <!-- Footer-->
         <footer class="bg-light py-5">
@@ -205,6 +149,7 @@ td{
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
 
+
+</body>
 </html>

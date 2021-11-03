@@ -7,9 +7,10 @@ public interface UsersService {
 	public StudyInfoVO deleteBoard();
 	public String getTitle();
 	public List<StudyInfoVO> getSearchList();
-	public List<StudyInfoVO> StudyinfoList();
+	public List<StudyInfoVO> StudyinfoListAll();
 	public List<StudyInfoVO> getWord(String title, String member_id);
 //	public boardDelete(String delete);
 	public void boardDelete(String string);
 //	public List<UsersVO> getWord(String word);
+	public List<StudyInfoVO> StudyinfoList(String current_id);
 }
