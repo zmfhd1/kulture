@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Project</title>
+        <title>Edit my profile</title>
         
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -25,42 +25,7 @@
         <!-- 제가 적용하는 style 및 sript 부분 -->
         <script src="/jquery-3.2.1.min.js"></script>
 <style>
-#modal {
-display:none;
 
-  position:fixed;
-  width:100%;
-  height:50%;
-  z-index:1;
-}
-
-#modal h2 {
-  margin:0;   
-}
-
-#modal button {
-  display:inline-block;
-  width:100px;
-  margin-left:calc(100% - 100px - 10px);
-}
-
-#modal .modal_content {
-  width:300px;
-  margin:100px auto;
-  padding:20px 10px;
-  background:#fff;
-  border:2px solid #666;
-}
-
-#modal .modal_layer {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0, 0, 0, 0.5);
-  z-index:-1;
-}   
 </style>
 
 <script>
@@ -130,57 +95,27 @@ function deleteMember(){
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="main">Kulture</a>
+                <a class="navbar-brand" href="main2">Kulture</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/insertmember">Join</a></li>
-                     	<div id="root">    
-                        <li class="nav-item"><a class="nav-link" id="modal_open_btn">Log in</a></li>
-                        </div>
-                        <!--  <li class="nav-item"><a class="nav-link" href="#contact">JOIN US</a></li>-->
+                        <li class="nav-item"><a class="nav-link">${sessionScope.nickname }</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/study'>Study</a></li>
+                        <li class="nav-item"><a class="nav-link" href='/studylist'>My list</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/mypage">My page</a></li> 
+                        <li class="nav-item"><a class="nav-link" href='/logout'>Log out</a></li>
               
                     </ul>
                 </div>
             </div>
-        </nav>
-  
-        <!-- 로그인 -->
-        <div id="modal">
-   
-    	<div class="modal_content">
-        <h2>Log in</h2>
-       
-        <form action="main" name="login" method="post">
-		ID: <input id="id2" type="text" autofocus="autofocus" name="id" placeholder="10-digit" maxlength="10"><br>
-		Password: <input id ="pw2" name = "pw" type="password" name="pw" maxlength="4" placeholder="4-digit">
-		<input id ="btnLogin" type="button" value="확인">
-		</form>
-        <button type="submit" id="modal_close_btn">닫기</button>      
-       
-    	</div>
-    	<div class="modal_layer"></div>
-		</div>
-
-<script>
-    $("#modal_open_btn").click(function(){
-        $("#modal").attr("style", "display:flex");
-    });
-   
-     $("#modal_close_btn").click(function(){
-        $("#modal").attr("style", "display:none");
-    });
-  
-</script>
- <!-- 로그인 끝 -->       
+        </nav>  
      
         <!-- Update form-->
         <section class="page-section" id="contact">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
-                        <h2 class="mt-0">Edit My Info</h2>
+                        <h2 class="mt-0">Edit My Profile</h2>
                         <hr class="divider" />
                         <p class="text-muted mb-5">Hello, ${sessionScope.nickname }!</p>
                     </div>
@@ -195,14 +130,14 @@ function deleteMember(){
                             
                             <!-- PW input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="pw" id="pw" type="password" maxlength="4" placeholder="4 digit..." required="required" value="${sessionScope.pw }"/>
+                                <input class="form-control" name="pw" id="pw" type="password" maxlength="10" placeholder="10 digit..." required="required" value="${sessionScope.pw }"/>
                                 <label for="pw">Password</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
                             
                             <!-- pw 확인 -->
                              <div class="form-floating mb-3">
-                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="4" placeholder="4 digit..." required="required" value="${sessionScope.pw }"/>
+                                <input class="form-control" name="pwchk" id="pwchk" type="password" maxlength="10" placeholder="10 digit..." required="required" value="${sessionScope.pw }"/>
                                 <label for="pwchk">Password Check</label>
                                 <div class="invalid-feedback">Password is required.</div>
                             </div>
@@ -229,7 +164,7 @@ function deleteMember(){
                 
                             <!-- NickName input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="4" required="required" value="${sessionScope.nickname }"/>
+                                <input class="form-control" name="nickname" id="nickname" type="text" placeholder="Enter your nickname..." maxlength="8" required="required" value="${sessionScope.nickname }"/>
                                 <label for="nickname">Nickname</label>
                                 <div class="invalid-feedback">A nickname is required.</div>
                             </div>
@@ -256,14 +191,14 @@ function deleteMember(){
                             <div class="d-grid"><button class="btn btn-primary btn-xl" id="submitButton" onclick="deleteMember()">Delete My Account</button></div>
                     <!-- 회원가입 끝 -->
                     
-                    
+            </div>
+                    <div id ="space_little2"></div>
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-4 text-center mb-5 mb-lg-0">
                         <i class="bi-phone fs-2 mb-3 text-muted"></i>
                         <div>+1 (555) 123-4567</div>
                     </div>
                 </div>
-            </div>
         </section>
         <!-- Footer-->
         <footer class="bg-light py-5">
@@ -279,6 +214,6 @@ function deleteMember(){
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- <script src="/sb-forms-latest.js"></script> -->
+        <script src="/sb-forms-latest.js"></script>
     </body>
 </html>

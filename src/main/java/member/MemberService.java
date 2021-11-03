@@ -22,7 +22,6 @@ public interface MemberService {
 	
 	//로그 아웃
 	public void logOut(HttpSession session);
-	
 		
 	//id 가져오면 회원정보도 가져오기
 	public MemberVO memberOne(String id);

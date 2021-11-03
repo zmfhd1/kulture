@@ -19,21 +19,10 @@ public class ContentsController {
 	@Qualifier("contentservice")
 	ContentsService service;
 
-	@RequestMapping("/contentsinput")
-	@ResponseBody
-	public ModelAndView contentsinput() {
-		System.out.println("컨트롤러");
-		ModelAndView mv = new ModelAndView();
-		//ContentsVO vo = new ContentsVO();
-		List<ContentsVO> contentslist = service.contentsList();
-		System.out.println(contentslist.size());
-		mv.addObject("contentslist", contentslist);
-		mv.setViewName("/cont/contentsinput");
-		return mv;
-		
-		
-	}
 	
+	
+	
+	//contentstitle_타이틀 page
 	@RequestMapping("/contents")
 	public ModelAndView contents(String content_title) {
 		ModelAndView mv = new ModelAndView();
@@ -45,6 +34,7 @@ public class ContentsController {
 		
 	}
 	
+	//contents_상세페이지 page
 	@RequestMapping("/contents1")
 	public ModelAndView contents(int content_id) {
 		System.out.println("시작");
@@ -57,4 +47,17 @@ public class ContentsController {
 		return mv;
 
 	}
+	
+	//contentstitle_의견 sumit
+	@RequestMapping("/content_mail")
+	public String content_mail() throws Exception{
+		return "/cont/content_mail";
+	}
+	
+	/*
+	 * @RequestMapping("/return_content") public ModelAndView return_content() {
+	 * ModelAndView mv = new ModelAndView();
+	 * 
+	 * }
+	 */
 }

@@ -34,18 +34,6 @@ public class UsersServiceImpl implements UsersService{
 	}
 
 	@Override
-	public List<StudyInfoVO> StudyinfoList() {
-		List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>) dao.getStudyinfoList();
-		return studyinfolist;
-	}
-
-//	@Override
-//	public String getWord() {
-//		String word = dao.getWord();
-//		return word;
-//	}
-	
-	@Override
 	public List<StudyInfoVO> getWord(String title, String member_id) {
 		List<StudyInfoVO> searchlist = dao.getWord(title, member_id);
 		return searchlist;
@@ -55,12 +43,19 @@ public class UsersServiceImpl implements UsersService{
 	public void boardDelete(String delete) {
 		dao.boardDelete(delete);
 	}
+
+	@Override
+	public List<StudyInfoVO> StudyinfoList(String current_id) {
+		List<StudyInfoVO> studyinfolist = (List<StudyInfoVO>)dao.getStudyinfoList(current_id);
+		return studyinfolist;
+	}
+
+	@Override
+	public List<StudyInfoVO> StudyinfoListAll() {
+		List<StudyInfoVO> studyinfolistall = (List<StudyInfoVO>)dao.getStudyinfoListAll();
+		return studyinfolistall;
+	}
 	
-//	@Override
-//	public List<UsersVO> getWord(String word) {
-//		List<UsersVO> searchlist = dao.getWord(word);
-//		return searchlist;
-//	}
 	
 	
 	

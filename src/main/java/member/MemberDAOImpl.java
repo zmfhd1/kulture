@@ -17,13 +17,15 @@ public class MemberDAOImpl implements MemberDAO {
 	SqlSession sqlSession;
 	@Autowired
 	MemberDAO dao;
-
+	
+	//회원가입
 	@Override
 	public void insertmember(MemberVO vo) {
 		dao.insertmember(vo);
 
 	}
-
+	
+	//id 가져오면 회원정보도 가져오기
 	@Override
 	public MemberVO memberone(String id) {
 		return dao.memberone(id);
@@ -55,22 +57,26 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne("viewmember", vo);
 	}
 
+	//로그 아웃
+	/*
 	@Override
 	public void logout(HttpSession session) {
+	}*/
 
-	}
-
+	//관리자 멤버리스트
 	@Override
 	public List<MemberVO> memberlist() {
 		return dao.memberlist();
 	}
 
+	//회원수정
 	@Override
 	public void updatemember(MemberVO vo) {
 		dao.updatemember(vo);
 
 	}
 
+	//회원 탈퇴
 	@Override
 	public void deletemember(String id) {
 		dao.deletemember(id);

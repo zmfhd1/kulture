@@ -29,7 +29,7 @@ public class STTService implements NaverService {
         StringBuffer response = new StringBuffer();
 
         try {
-        	String imgFile = "/usr/mydir/upload/" + file;
+        	String imgFile = "D:/kdigitaltest/" + file;
             File voiceFile = new File(imgFile);
 
             //String language = "Kor";        // 언어 코드 ( Kor, Jpn, Eng, Chn )

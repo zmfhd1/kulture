@@ -1523,6 +1523,7 @@ progress {
 
   .g-lg-5,
 .gx-lg-5 {
+    /* --bs-gutter-x: 0rem; */
     --bs-gutter-x: 3rem;
   }
 
@@ -11365,8 +11366,9 @@ hr.divider-light {
     box-shadow: none;
     background-color: transparent;
   }
+  /*메인 상단 바 kulture 색깔 바꿔l*/
   #mainNav .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
+    color: #C27438;
   }
   #mainNav .navbar-brand:hover {
     color: #fff;
@@ -11402,7 +11404,7 @@ hr.divider-light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: url("../assets/img/kulture_background2.png");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
+  background: url("../assets/img/waterbrush3.jpg");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11410,16 +11412,222 @@ header.masthead {
 }
 
 /* 제가 추가하는 것들 */
+header.masthead2 {
+  padding-top: 0rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: url("../assets/img/sub_background2.png");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
 #typo{
-background: url("../assets/img/kulture_typo2.png");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
+background: url("../assets/img/typo.png");/* linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%),  */
 background-position: 50% 0%;
 background-repeat: no-repeat;
-background-size: 100%;
-max-width: 100%;
-max-height: 100%;
+background-size: cover;
+width:800px;
+height:400px;
+}
+/*이 달의 추천 - contents쪽 jsp*/
+
+hr.divider2 {
+  height: 0.2rem;
+  max-width: 70rem;
+  margin: 1rem auto;
+  background-color: #C27438;
+  opacity: 1;
+}
+
+hr.divider3 {
+  height: 4px;
+  max-width: 100px;
+  margin: 1rem auto;
+  background-color: #C27438;
+  opacity: 1;
+}
+
+/*카테고리 제목*/
+#title_name {
+font-size:80px;
+font-family: Heebo black;
+color:#BC5200;
+}
+
+#category_title {
+font-size: 3.5rem;
+font-family: Heebo black;
+color:#BC5200;
+}
+
+/*컨텐츠 제목*/
+#contents_title{
+color: #C27438;
+font-size: 18px;
+font-family: Heebo black;
+}
+
+/*contentstitle에 있는 enjoy our contents*/
+#enjoy_typo{
+color: #C27438;
+font-size: 45px;
+font-family: Heebo black;
+}
+
+#ko_content{
+font-size: 15px;
+font-family: 공체;
+}
+
+/* 로그인 영역 */
+#modal {
+display:none;
+
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:1;
+}
+
+#modal h2 {
+  margin:0;   
+}
+
+#modal button {
+  display:inline-block;
+  width:100px;
+  margin-left:calc(100% - 100px - 10px);
+}
+
+#modal .modal_content {
+  width:400px;
+  height:320px;
+  margin:100px auto;
+  padding:20px 10px;
+  background:#fff;
+  border:2px solid #666;
+}
+
+#modal .modal_layer {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.5);
+  z-index:-1;
+}
+
+/* 여백 주는 div 태그들 스타일 */
+#space{
+padding-bottom: 300px;
+}
+
+#space2{
+padding-bottom: 200px;
+}
+
+#space3{
+padding-bottom: 150px;
+}
+
+/* 오른쪽, 왼쪽 공백 */
+#space4{
+display: inline-block;
+padding-right: 35px;
+}
+
+#space4_2{
+display: inline-block;
+padding-right: 15px;
+}
+
+#space4_1{
+display: inline-block;
+padding-right: 100px;
+}
+
+#space5{
+display: inline-block;
+padding-left: 30px;
+}
+
+/* 조금 공백 */
+#space_little{
+padding-bottom: 20px;
+}
+
+#space_little2{
+padding-bottom: 80px;
+}
+
+#space_little3{
+padding-bottom: 50px;
+}
+
+
+/*글씨 효과 */
+#toReveal {
+  position: absolute;
+  opacity: 0;
+  /*margin-left: -100px;
+  margin-top: 200px;*/
+  transition: all 2s;
+  text-align: center;
+  /*color: #C27438;*/
+  font-size: 1.1em;
+}
+
+#toReveal.revealed {
+  opacity: 1;
+  transform:translate(50px,0px);
+}
+
+#toReveal2 {
+  /*position: absolute;
+  margin-left: -100px;
+  margin-top: 200px;*/
+  opacity: 0;
+  transition: all 2s;
+  text-align: center;
+  /*color: #C27438;
+  font-size: 1.1em;*/
+}
+
+#toReveal2.revealed {
+  opacity: 1;
+  transform:translate(50px,0px);
+}
+
+
+#monthly_typo{
+color: #BC5200;
+font-size: 2.2em;
+font-family: Heebo black;
+}
+
+#title_typo{
+/* color: #BC5200; */
+font-size: 2.5em;
+font-family: Heebo black;
+}
+
+#log_in{
+color: #BC5200;
+font-size: 2.5em;
+font-family: Heebo black;
+}
+
+#log_in_typo{
+color: #C27438;
+font-size: 1.3em;
+font-family: Heebo black;
+display: inline-block;
 }
 
 /* 조민우 추가 한 것들  */
+/*
 .deletebtn{
 	box-shadow:inset 0px 1px 0px 0px #f29c93;
 	background:linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
@@ -11435,6 +11643,15 @@ max-height: 100%;
 	padding:6px 24px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #b23e35;
+}*/
+
+.deletebtn {
+  padding: 0.30rem 1.00rem;
+  font-size: 0.85rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
 }
 
 .btn-xl2 {
@@ -11497,7 +11714,7 @@ header.masthead h1, header.masthead .h1 {
 }
 @media (min-width: 992px) {
   header.masthead {
-    height: 110vh;
+    height: 120vh;
     min-height: 40rem;
     padding-top: 4.5rem;
     padding-bottom: 0;
@@ -11520,7 +11737,10 @@ header.masthead h1, header.masthead .h1 {
 }
 #portfolio .container-fluid .portfolio-box, #portfolio .container-sm .portfolio-box, #portfolio .container-md .portfolio-box, #portfolio .container-lg .portfolio-box, #portfolio .container-xl .portfolio-box, #portfolio .container-xxl .portfolio-box {
   position: relative;
+  overflow: hidden;
   display: block;
+  width: 640px;
+  height: 340px;
 }
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption, #portfolio .container-xxl .portfolio-box .portfolio-box-caption {
   display: flex;
